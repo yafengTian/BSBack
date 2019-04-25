@@ -25,22 +25,124 @@
     <servlet-name>is_login</servlet-name>
     <url-pattern>/is_login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  <servlet-name>image</servlet-name>
-  <servlet-class>servlet.HomeImage</servlet-class>
+    <servlet-name>image</servlet-name>
+    <servlet-class>servlet.HomeImage</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>image</servlet-name>
-  <url-pattern>/image</url-pattern>
+    <servlet-name>image</servlet-name>
+    <url-pattern>/image</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
-  <servlet-name>detail</servlet-name>
-  <servlet-class>servlet.Detail</servlet-class>
+  <servlet>
+    <servlet-name>detail</servlet-name>
+    <servlet-class>servlet.Detail</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>detail</servlet-name>
-  <url-pattern>/detail</url-pattern>
+    <servlet-name>detail</servlet-name>
+    <url-pattern>/detail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>pay</servlet-name>
+    <servlet-class>servlet.Pay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pay</servlet-name>
+    <url-pattern>/pay</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>userinfo</servlet-name>
+    <servlet-class>servlet.UserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userinfo</servlet-name>
+    <url-pattern>/userinfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>get_info</servlet-name>
+    <servlet-class>servlet.GetInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>get_info</servlet-name>
+    <url-pattern>/get_info</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>enter</servlet-name>
+    <servlet-class>servlet.ScanEnter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>enter</servlet-name>
+    <url-pattern>/enter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>servlet.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>catagory</servlet-name>
+    <servlet-class>servlet.GetTicketByCatagory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>catagory</servlet-name>
+    <url-pattern>/catagory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>collect</servlet-name>
+    <servlet-class>servlet.Collection</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>collect</servlet-name>
+    <url-pattern>/collect</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>show</servlet-name>
+    <servlet-class>servlet.ShowCollection</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>show</servlet-name>
+    <url-pattern>/show</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>is_collection</servlet-name>
+    <servlet-class>servlet.GetCollection</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>is_collection</servlet-name>
+    <url-pattern>/is_collection</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>list</servlet-name>
+    <servlet-class>servlet.ShowOrders</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>list</servlet-name>
+    <url-pattern>/list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>show_comment</servlet-name>
+    <servlet-class>servlet.ShowComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>show_comment</servlet-name>
+    <url-pattern>/show_comment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addAddress</servlet-name>
+    <servlet-class>servlet.AddAddress</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addAddress</servlet-name>
+    <url-pattern>/addAddress</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>showAddress</servlet-name>
+    <servlet-class>servlet.ShowAddress</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showAddress</servlet-name>
+    <url-pattern>/showAddress</url-pattern>
   </servlet-mapping>
 </web-app>

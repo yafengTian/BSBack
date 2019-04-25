@@ -25,6 +25,8 @@ public class Login extends HttpServlet{
 		  JSONObject json;
 		  String account=request.getParameter("account");
 		  String password=request.getParameter("password");
+		  response.setContentType("text/json;chartset=UTF-8");
+			response.setCharacterEncoding("UTF-8");
 		  PrintWriter out = response.getWriter();
 		  System.out.println(account+" "+password);
 		  User user = user_dao.login(account, password);

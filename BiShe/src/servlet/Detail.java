@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.TicketDao;
 import model.Ticket;
 import net.sf.json.JSONArray;
+import util.Util;
 
 @SuppressWarnings("serial")
 public class Detail extends HttpServlet {
@@ -27,9 +28,9 @@ public class Detail extends HttpServlet {
 		 Ticket ticket=null;
 		 if(!"".equals(id))
 		 {
-			 tId=Integer.parseInt(id); 
+			 	tId=Integer.parseInt(id); 
 				ticket=dao.detail(tId);
-				String imagesUrl="http://localhost:8080/homeImage/tickets/";
+				String imagesUrl=Util.url;
 				ticket.setImage(imagesUrl+ticket.getImage());
 		 }
 		JSONArray json=JSONArray.fromObject(ticket);

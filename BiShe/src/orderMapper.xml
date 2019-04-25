@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao_interface.OrderInf">
+
+<resultMap type="model.Order" id="ResultMap">
+	<result column="tId" property="tId"/>
+	<result column="count" property="count"/>
+	<result column="flag" property="flag"/>
+	<collection property="tikets" ofType="model.Ticket">
+	<result column="ticketName" property="ticketName"/>
+	<result column="address" property="address"/>
+	<result column="descration" property="descration"/>
+	<result column="image" property="image"/>
+	<result column="introduction" property="introduction"/>
+	<result column="price" property="price"/>
+	<result column="saleCount" property="saleCount"/>
+	</collection>
+</resultMap>
+	<!-- 通过扫描二维码来判断用户的门票二维码是否有效 
+    <select id="scan" resultType="Integer">
+        SELECT count FROM order_list where openid=#{openid} and tId=#{tId} and flag=3 and count>0
+   </select>
+   -->
+   <!-- 用户扫码成功之后，将票的数目减1 -->
+   <update id="scan">
+   	update order_list set count=count-1 where openid=#{openid} and tId=#{tId} and count>0 and flag=3
+   </update>
+   
+   <!-- 查看用户的订单 -->
+   <select id="allList" resultMap="ResultMap">
+   select * <!-- o.tId,o.count,o.flag,t.price,t.descration,t.image,t.ticketName -->
+   from order_list o,ticket t 
+   where o.tId=t.id and o.openid=#{openid}
+   </select>
+   
+   <!-- 查找未付款的订单 -->
+   <select id="unPayList" resultMap="ResultMap">
+   select * <!-- o.tId,o.count,o.flag,t.price,t.descration,t.image,t.ticketName -->
+   from order_list o,ticket t 
+   where o.tId=t.id and o.openid=#{openid} and o.flag=#{flag}
+   </select>
+   
+      <!-- 查找未使用的订单 -->
+   <select id="unUseList" resultMap="ResultMap">
+   select * <!-- o.tId,o.count,o.flag,t.price,t.descration,t.image,t.ticketName -->
+   from order_list o,ticket t 
+   where o.tId=t.id and o.openid=#{openid} and o.flag=#{flag}
+   </select>
+   <!-- 查找已经使用的订单 -->
+   <select id="useList" resultMap="ResultMap">
+   select * <!-- o.tId,o.count,o.flag,t.price,t.descration,t.image,t.ticketName -->
+   from order_list o,ticket t 
+   where o.tId=t.id and o.openid=#{openid} and o.flag=#{flag}
+   </select>
+   <!-- 查找未评价的订单 -->
+   <select id="uncomment" resultMap="ResultMap">
+   select * <!-- o.tId,o.count,o.flag,t.price,t.descration,t.image,t.ticketName -->
+   from order_list o,ticket t 
+   where o.tId=t.id and o.openid=#{openid} and o.flag=#{flag}
+   </select>
+   
+   <!--更该订单的状态 -->
+   <update id="set_status">
+    update order_list set flag=#{flag} where tId=#{tId} and openid=#{openid}
+   </update>
+</mapper>

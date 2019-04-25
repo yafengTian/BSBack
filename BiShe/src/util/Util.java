@@ -5,10 +5,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
+
+import model.Ticket;
+import model.TicketOrder;
 /*
  * 获取openid和sessionKey工具类
  * */
 public class Util {
+	public static String url="http://localhost:8080/homeImage/tickets/";
+	//public static String url="http://154.8.136.60:8080/userImage/";
 	  public static String sendGetReq(String url) {
 	        String result = "";
 	        BufferedReader in = null;
@@ -50,4 +55,18 @@ public class Util {
 	        }
 	        return result;
 	    }
+	  //设置订单状态
+	  public static void setStatus(TicketOrder order,int flag) {
+		  switch (flag) {
+		case 2:order.setStatus("待付款");
+			break;
+		case 3:order.setStatus("待使用");
+			break;
+		case 4:order.setStatus("已使用");
+			break;
+		case 5:order.setStatus("待评价");
+		default:
+			break;
+		}
+	  }
 }

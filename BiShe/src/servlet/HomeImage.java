@@ -13,6 +13,7 @@ import dao.TicketDao;
 import model.Ticket;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import util.Util;
 
 /**
  * Servlet implementation class HomeImage
@@ -26,7 +27,9 @@ public class HomeImage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 List<Ticket> tickets=dao.showAllTickets();
-			String imagesUrl="http://localhost:8080/homeImage/tickets/";
+			//String imagesUrl="http://154.8.136.60:8080/userImage/";
+			String imagesUrl=Util.url;
+
 			for(int i=0;i<tickets.size();i++)
 			{
 			//Æ´½ÓÍ¼Æ¬µÄurl

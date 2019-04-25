@@ -1,5 +1,12 @@
 package model;
-
+/*
+ * 
+ *openid: getApp().globalData.openid,
+ *nickName: e.detail.userInfo.nickName,
+ *avatarUrl: e.detail.userInfo.avatarUrl,
+ *province: e.detail.userInfo.province,
+ *city: e.detail.userInfo.city
+ * */
 public class User {
 
 	int id;

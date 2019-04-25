@@ -17,5 +17,17 @@
     <select id="is_login" parameterType="Map" resultType="Integer">
     	select loginFlag from user where openid=#{openid}
     </select>
+    <!-- 保存用户信息 -->
+    <insert id="saveInfo" useGeneratedKeys="true" parameterType="model.UserInfo">
+    	insert into user_info(openid,nickName,avatarUrl,province,city) values (#{openid},#{nickName},#{avatarUrl},#{province},#{city})
+    </insert>
     
+    <!-- 获取用户信息 -->
+    <select id="getInfo" parameterType="Map" resultType="model.UserInfo">
+    	select * from user_info where openid=#{openid}
+    </select>
+   <!-- 用户退出登陆,并删除其所有信息，推出后得重新授权 -->
+   <delete id="logout" parameterType="String">
+   	delete  from user_info where openid=#{openid}
+   </delete>
 </mapper>

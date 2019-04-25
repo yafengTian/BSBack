@@ -7,6 +7,10 @@
         <result column="descration" property="descration"/>   
         <result column="image" property="image"/>
         <result column="introducation" property="introducation"/>
+        <result column="ticketName" property="ticketName"/>
+        <result column="address" property="address"/>
+        <result column="catagory" property="catagory"/>
+        <result column="saleCount" property="saleCount"/>
     </resultMap> 
   <select id="showAllTickets" resultMap="ResultMap">
         SELECT * FROM ticket
@@ -14,4 +18,35 @@
     <select id="detail" resultMap="ResultMap">
         SELECT * FROM ticket where id=#{tId}
    </select>
+   <!-- 插入购票信息 -->
+   <insert id="pay_order" parameterType="model.Order" useGeneratedKeys="true">
+    insert into order_list(tId,count,openid,flag)values(#{tId},#{count},#{openid},#{flag})
+   </insert>
+   <!-- 更改售票信息 -->
+   <update id="update_saleCount">
+    update ticket t set saleCount=t.saleCount+#{count} where id=#{tId}
+   </update>
+   <!-- 根据门票类型查询 -->
+   <select id="catagory" resultMap="ResultMap">
+   select * from ticket where catagory=#{catagory}
+   </select>
+   
+   <!-- 用户收藏门票 -->
+   <insert id="collect">
+   	insert into collection(tId,openid)values(#{id},#{openid});
+   </insert>
+   <!-- 用户取消收藏门票 -->
+   <delete id="cancleCollect">
+   delete from collection where tId=#{id} and openid=#{openid}
+   </delete>
+   
+  <!-- 查找用户已经收藏得门票 -->
+  <select id="show_collection" resultMap="ResultMap">
+  	select * from ticket t,collection c where t.id=c.tId and c.openid=#{openid}
+  </select>
+  
+  <!-- 判断用户是否收藏了门票 -->
+  <select id="is_collection" resultType="model.Collection">
+  select * from collection where tId=#{id} and openid=#{openid}
+  </select>
 </mapper>

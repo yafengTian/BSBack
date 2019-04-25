@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao_interface.AddressInf">
+<resultMap type="model.Address" id="ResultMap">
+<id column="id" property="id"/>
+<result column="username" property="username"/>
+<result column="phonenumber" property="phonenumber"/>
+<result column="address" property="address"/>
+<result column="area" property="area"/>
+<result column="openid" property="openid"/>
+<result column="moren" property="moren"/>
+</resultMap>
+<!-- 添加用户地址 -->
+<insert id="addAddress">
+	insert into address(username,phonenumber,area,address,openid,moren)
+	values(
+	#{username},
+	#{phonenumber},
+	#{area},
+	#{address},
+	#{openid},
+	#{moren})
+</insert>
+<!-- 显示用户的所有收获地址 -->
+<select id="showAddress" resultMap="ResultMap">
+	select * from address where openid=#{openid}
+</select>
+</mapper>

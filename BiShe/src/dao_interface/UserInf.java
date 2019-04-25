@@ -1,8 +1,11 @@
 package dao_interface;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import model.User;
+import model.UserInfo;
 
 public interface UserInf {
 	/*
@@ -27,4 +30,22 @@ public interface UserInf {
 	 * */
 	public int is_login(String openid);
 	
+	/*
+	 * 保存用户信息
+	 * @param openid:用户唯一标识
+	 * @param nickName 微信名
+	 * @param province:用户省份
+	 * @param city:用户所在城市
+	 * */
+	public int saveInfo(@Param("openid")String openid,@Param("nickName")String nickName,@Param("avatarUrl")String avatarUrl,@Param("province")String province,@Param("city")String city);
+	
+	/*
+	 * 获取用户信息
+	 * */
+	public List<UserInfo> getInfo(String openid);
+	
+	/*
+	 * 退出登录
+	 * */
+	public int logout(String openid);
 }

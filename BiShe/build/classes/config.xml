@@ -25,5 +25,9 @@
   <mappers>
     <mapper resource="userMapper.xml"/>
     <mapper resource="ticketMapper.xml"/>
+    <mapper resource="orderMapper.xml"/>
+    <mapper resource="commentUpper.xml"/>
+    <mapper resource="adddressMapper.xml"/>
   </mappers>
 </configuration>
+<!-- 154.8.136.60 -->
